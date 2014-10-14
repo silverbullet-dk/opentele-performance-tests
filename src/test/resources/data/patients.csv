@@ -1,0 +1,3 @@
+patientId, username, password, skema, firstname
+13,regm,abcd1234,"skema1.json", Region
+11,NancyAnn,abcd1234,"skema2.json", Nancy Ann

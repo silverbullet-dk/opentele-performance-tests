@@ -1,0 +1,6 @@
+.idea/
+.vagrant/
+target/
+opentele-performance-tests.iml
+*.war
+*.box
