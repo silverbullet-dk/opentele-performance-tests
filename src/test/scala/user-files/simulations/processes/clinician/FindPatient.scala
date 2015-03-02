@@ -9,9 +9,9 @@ object FindPatient {
     .formParam("_action_doSearch", "Find patient")
     .check(regex(patientName)))
   def clearAll() = exec(http("clear all")
-    .post("""/patient/doSearch""").formParam("""_action_resetSearch""", """Nulstil felter"""))
+    .post("/patient/doSearch").formParam("_action_resetSearch", "Nulstil felter"))
     .pause(10)
   def findAll() = exec(http("find all")
-    .post("""/patient/doSearch""").formParam("""_action_doSearch""", """Find patient"""))
+    .post("/patient/doSearch").formParam("_action_doSearch", "Find patient"))
     .pause(10)
 }

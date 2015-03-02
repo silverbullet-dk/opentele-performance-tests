@@ -1,1 +1,28 @@
-{"QuestionnaireId":27,"date":"2014-09-24T07:16:53Z","name":"Blodsukker (manuel)","output":[{"name":"158.BS#BLOODSUGARMEASUREMENTS","type":"BloodSugarMeasurements","value":{"measurements":[{"isAfterMeal":true,"isBeforeMeal":false,"result":12.0,"timeOfMeasurement":"2014-09-24T07:16:53.140Z"}],"transferTime":"2014-09-24T07:16:53.140Z"}},{"name":"158.BS##SEVERITY","type":"String","value":"GREEN"}],"version":"0.1"}
+{
+    "QuestionnaireId": 27,
+    "date": "2014-09-24T07:16:53Z",
+    "name": "Blodsukker (manuel)",
+    "output": [
+        {
+            "name": "158.BS#BLOODSUGARMEASUREMENTS",
+            "type": "BloodSugarMeasurements",
+            "value": {
+                "measurements": [
+                    {
+                        "isAfterMeal": true,
+                        "isBeforeMeal": false,
+                        "result": 12.0,
+                        "timeOfMeasurement": "2014-09-24T07:16:53.140Z"
+                    }
+                ],
+                "transferTime": "2014-09-24T07:16:53.140Z"
+            }
+        },
+        {
+            "name": "158.BS##SEVERITY",
+            "type": "String",
+            "value": "GREEN"
+        }
+    ],
+    "version": "0.1"
+}

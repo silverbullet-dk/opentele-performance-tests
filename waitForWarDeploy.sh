@@ -5,7 +5,7 @@ do
 	waitCounter=$((waitCounter+1))
   	echo --- sleeping for 5 seconds
   	sleep 5
-  	if [ $waitCounter -gt 120 ]
+  	if [ $waitCounter -gt 220 ]
 		then
   		echo "Timed out waiting for OpenTele"
   		exit -1

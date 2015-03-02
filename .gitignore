@@ -4,3 +4,10 @@ target/
 opentele-performance-tests.iml
 *.war
 *.box
+*.iml
+reports/
+scripts/batch.sh
+src/test/scala/dk/
+stats/
+test_options
+.DS_Store

@@ -3,7 +3,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class FindPatientSimulation extends Simulation {
+class LookupUserRolesSimulation extends Simulation {
 
   val host:String = System.getProperty("server")
   val httpConf = http.baseURL("http://" + host)
@@ -11,10 +11,7 @@ class FindPatientSimulation extends Simulation {
   val myRamp:Long = java.lang.Long.getLong("ramp", 0L)
 
   val feeder = csv("patients.csv").random
-  val clinicians = scenario("Clinicians")
-    .feed(feeder)
-    .exec(Login.login, FindPatient.findPatient("${username}"),
-      FindPatient.clearAll(),FindPatient.findAll())
+  val clinicians = scenario("Clinicians").feed(feeder).exec(Login.login,  LookupUserRolles.lookup())
 
   setUp(
     clinicians.inject(rampUsers(nbUsers) over (myRamp seconds))
