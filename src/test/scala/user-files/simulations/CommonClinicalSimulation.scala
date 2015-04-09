@@ -7,8 +7,8 @@ import scala.concurrent.duration._
  * login, checking questionnaires, showing a patient and the different screens
  * and actions which can be done in the patient menu.
  *
- * @author Torben Nielsen
- * @version 2015-01-16
+ * @author Torben Nielsen, Peter Urbak
+ * @version 2015-03-03
  */
 class CommonClinicalSimulation extends Simulation {
 
@@ -19,6 +19,7 @@ class CommonClinicalSimulation extends Simulation {
 
   val clinical_fedder = csv("clinicals.csv").circular
   val patient_fedder = csv("common_patients.csv").random
+  var questionnaire_feeder = csv("questionnaires.csv").random
 
   // Forudsætning: klinikere og patienter eksisterer
 
@@ -29,6 +30,7 @@ class CommonClinicalSimulation extends Simulation {
     .exitBlockOnFail {
     repeat(3) {
       feed(patient_fedder)
+        .feed(questionnaire_feeder)
         .exec(
           PatientOverview.choosePatient("${patientId}"),
           pause(5),
@@ -36,14 +38,11 @@ class CommonClinicalSimulation extends Simulation {
           pause(5),
           PatientMeasurements.weekMeasurements("${patientId}"),
           pause(10),
-          LookupQuestionSchema.lookup("${patientId}"),
+          LookupQuestionSchema.lookup("${questionnaireId}"),
           pause(10),
           LookupMessages.lookup("${patientId}"),
           pause(10),
-          PatientMenu.graphs("${patientId}"),
-          pause(10),
-          FindPatient.clearAll(),
-          FindPatient.findAll()
+          PatientMenu.graphs("${patientId}")
         )
         .pause(5)
     }

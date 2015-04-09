@@ -19,7 +19,7 @@ object Login {
     .formParamMap(Map("j_username" -> userName, "j_password" -> passWord)))
 
   def patient(userName : String, passWord : String) = exec(http("Patient login page")
-    .get("/rest/patient/login")
+    .get("/patient")
     .basicAuth(userName, passWord)
     .header("Client-version", "1.29.0")
     .disableFollowRedirect

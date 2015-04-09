@@ -19,7 +19,7 @@ Once OpenTele has deployed, opentele-server can be found at `http://localhost:45
 and opentele-citizen-server can be found at `http://localhost:4568`.
 
 You can then run integration tests with
-`mvn gatling:execute -Dgatling.simulationClass=[Test-class to run] -Dserver=[host:port for test server] -Dusers=[number of users] -Dramp=[ramp time]`
+`mvn gatling:execute -Dgatling.simulationClass=[Test-class to run] -Dserver=[host:port/context] -Dusers=[number of users] -Dramp=[ramp time]`
 After running the tests run `vagrant destroy` to reset the test system. 
 
 Simulations
@@ -46,7 +46,7 @@ There are scripts included for collecting CPU, Memory and Disk usage.
 You can use the following flow to collect data
 ```
 vagrant ssh -c 'nohup /vagrant/scripts/start.sh'
-mvn gatling:execute -Dgatling.simulationClass=[Test-class to run] -Dserver=[host:port for test server] -Dusers=[number of users] -Dramp=[ramp time]
+mvn gatling:execute -Dgatling.simulationClass=[Test-class to run] -Dserver=[host:port/context] -Dusers=[number of users] -Dramp=[ramp time]
 vagrant ssh -c '/vagrant/scripts/stop.sh'
 vagrant ssh -c '/vagrant/scripts/report.sh'
 ``
